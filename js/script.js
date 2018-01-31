@@ -5,4 +5,5 @@ function addTask()
     elemTasts.innerHTML = newTask;
     var taskList = document.getElementById("taskList");
     taskList.insertBefore(elemTasts, taskList.firstChild);
+    document.getElementById("newTask").value = '';
 }
