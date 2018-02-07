@@ -67,3 +67,13 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.todo-list_task{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 400px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+}
