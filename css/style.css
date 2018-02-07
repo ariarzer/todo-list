@@ -17,3 +17,11 @@ body {
     background-color: #FFFCC6;
     color: #542A00;
 }
+
+.basic_input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
