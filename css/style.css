@@ -52,3 +52,13 @@ body {
 .button:active {
     border-style: groove;
 }
+
+.todo-list_caption{
+    font-size: 22px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #542A00;
+}
