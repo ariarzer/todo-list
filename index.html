@@ -7,10 +7,18 @@
 	<link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-	<input type="text" placeholder="New task" id="newTask">
-	<button id="buttonAdd" onclick="addTask()">Add</button>
-	<div id="taskList"></div>
+	<div class="basic">
+	    <div class="basic_input">
+		<input type="text" placeholder="New task" id="newTask" class="input-field">
+		<button id="buttonAdd" onclick="addTask()" class="button">Add</button>
+	    </div>
 
-	<script src="js/script.js"></script>
+	    <div class="todo-list">
+		<div class="todo-list_caption">TODO:</div>
+		<div id="taskList" class="todo-list_task-list"></div>
+	    </div>
+
+	    <script src="js/script.js"></script>
+	<div>
     </body>
 </html>

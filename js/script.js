@@ -5,5 +5,6 @@ function addTask()
     elemTasts.innerHTML = newTask;
     var taskList = document.getElementById("taskList");
     taskList.insertBefore(elemTasts, taskList.firstChild);
+    elemTasts.classList.add('todo-list_task');
     document.getElementById("newTask").value = '';
 }
