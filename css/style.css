@@ -3,3 +3,17 @@ body {
     font-family: Arial;
     background-color: #71B8B4;
 }
+
+.basic{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border: 15px solid #F39C11;
+    padding: 20px;
+    background-color: #FFFCC6;
+    color: #542A00;
+}
