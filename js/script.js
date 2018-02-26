@@ -22,26 +22,23 @@ function create(tag, attributes) {
 function Task(text) {
   this.text = text;
   this.isDone = false;
+  this.id = counter.toString().padStart(3, '0');
+
+  this.block = create('div', {class: 'todo-list_task'},
+                      create('input', {type: 'checkbox', 'id': id}),
+                      create('label', {'for': id}, this.text));
 }
 
-function createTaskBlock(newTask) {
-  return create('div', {class: 'todo-list_task'},
-                create('input', Object.assign({type: 'checkbox', id: counter.toString()}, newTask.isDone === true ? { checked: ''} : {})),
-                create('label', {'for': counter.toString().padStart(3, '0')}, newTask.text));
+function TaskList(block) {
+  this.tasks = [];
+  this.block = block;
+
+  this.insertNewTask = function (newTask){
+    this.block.insertBefore(createTaskBlock(newTask), this.block.firstChild);
+  }
 }
 
 function addTask()
 {
-  var textFieldValue = document.getElementById("newTask").value;
-
-  if(textFieldValue){
-    var newTask = new Task(textFieldValue);
-
-    taskList.insertBefore(createTaskBlock(newTask), taskList.firstChild);
-
-    resetValueById("newTask");
-
-    counter++;
-  }
-
+  //do
 }
