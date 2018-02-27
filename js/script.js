@@ -1,6 +1,32 @@
-var taskList = document.getElementById("taskList");
+var blockOfTaskList = document.getElementById("task-list");
+
+var taskList = new TaskList(blockOfTaskList );
 
 var counter = 0;
+
+document.getElementById("create-tack-button").addEventListener('click', function () {
+    var taskText = document.getElementById('new-task').value;
+    if (taskText){
+      taskList.addNewTask(taskText);
+      resetValueById('new-task');
+    }
+  });
+
+function Task(text) {
+  this.text = text;
+  this.id = counter.toString().padStart(3, '0');
+
+  this.block = create('div', {class: 'todo-list_task'},create('input', {type: 'checkbox', 'id': this.id}),
+                      create('label', {'for': this.id}, this.text));
+}
+
+function TaskList(block) {
+  this.block = block;
+
+  this.addNewTask = function (taskText){
+    this.block.insertBefore((new Task(taskText)).block, this.block.firstChild);
+  }
+}
 
 const resetValueById = (id) => document.getElementById(id).value = '';
 
@@ -17,28 +43,4 @@ function create(tag, attributes) {
     element.appendChild(val);
   }
   return element;
-}
-
-function Task(text) {
-  this.text = text;
-  this.isDone = false;
-  this.id = counter.toString().padStart(3, '0');
-
-  this.block = create('div', {class: 'todo-list_task'},
-                      create('input', {type: 'checkbox', 'id': id}),
-                      create('label', {'for': id}, this.text));
-}
-
-function TaskList(block) {
-  this.tasks = [];
-  this.block = block;
-
-  this.insertNewTask = function (newTask){
-    this.block.insertBefore(createTaskBlock(newTask), this.block.firstChild);
-  }
-}
-
-function addTask()
-{
-  //do
 }
