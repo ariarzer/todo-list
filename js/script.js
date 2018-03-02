@@ -4,7 +4,7 @@ var taskList = new TaskList(blockOfTaskList );
 
 var counter = 0;
 
-document.getElementById("create-tack-button").addEventListener('click', function () {
+document.getElementById("create-task-button").addEventListener('click', function () {
     var taskText = document.getElementById('new-task').value;
     if (taskText){
       taskList.addNewTask(taskText);
