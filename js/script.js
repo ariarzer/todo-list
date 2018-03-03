@@ -4,8 +4,10 @@ function Task(text, id) {
   this.text = text;
   this.id = id;
 
-  this.block = create('div', {class: 'todo-list_task'},create('input', {type: 'checkbox', 'id': this.id}),
-                      create('label', {'for': this.id}, this.text));
+  var idForCheckbox = this.id + '-checkox';
+
+  this.block = create('div', {class: 'todo-list_task', 'id': this.id},create('input', {type: 'checkbox', 'id': idForCheckbox}),
+                      create('label', {'for': idForCheckbox}, this.text));
 }
 
 const resetValue = (block) => block.value = '';
