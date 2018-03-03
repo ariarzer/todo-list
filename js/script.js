@@ -1,10 +1,8 @@
 var taskList = new TaskList(document.getElementById('task-list'));
 
-var counter = 0;
-
-function Task(text) {
+function Task(text, id) {
   this.text = text;
-  this.id = counter.toString().padStart(3, '0');
+  this.id = id;
 
   this.block = create('div', {class: 'todo-list_task'},create('input', {type: 'checkbox', 'id': this.id}),
                       create('label', {'for': this.id}, this.text));
@@ -16,9 +14,13 @@ function TaskList(block) {
   this.block = block;
   this.button = document.getElementById('create-task-button');
   this.textArea = document.getElementById('new-task');
+  this.tasks = [];
 
   this.addNewTask = function (taskText){
-    this.block.insertBefore((new Task(taskText)).block, this.block.firstChild);
+    idNewTaskBlock = (this.tasks.length).toString().padStart(3, '0');
+    newTaskBlock = new Task(taskText, idNewTaskBlock).block;
+    this.block.insertBefore(newTaskBlock, this.block.firstChild);
+    this.tasks.push(newTaskBlock);
   }
 
   var self = this;
