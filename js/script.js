@@ -16,8 +16,10 @@ function TaskList(block) {
   this.textArea = document.getElementById('new-task');
   this.tasks = [];
 
+  var getTaskId = (i) => ('my-task-' + (i).toString().padStart(3, '0'));
+
   this.addNewTask = function (taskText){
-    idNewTaskBlock = (this.tasks.length).toString().padStart(3, '0');
+    idNewTaskBlock = getTaskId(this.tasks.length);
     newTaskBlock = new Task(taskText, idNewTaskBlock).block;
     this.block.insertBefore(newTaskBlock, this.block.firstChild);
     this.tasks.push(newTaskBlock);
