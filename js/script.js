@@ -34,9 +34,9 @@ function TaskList(block) {
 function create(tag, attributes) {
   var element = document.createElement(tag);
   if (typeof attributes == 'object') {
-    for (var i in attributes) {
-      element.setAttribute( i, attributes[i] );
-    }
+    Object.keys(attributes).forEach((key) => {
+      element.setAttribute( key, attributes[key] );
+    });
   }
   for (var i = 2; i < arguments.length; i++) {
     var val = arguments[i];
