@@ -21,10 +21,10 @@ function TaskList(block) {
   var getTaskId = (i) => ('my-task-' + (i).toString().padStart(3, '0'));
 
   this.addNewTask = function (taskText){
-    idNewTaskBlock = getTaskId(this.tasks.length);
-    newTaskBlock = new Task(taskText, idNewTaskBlock).block;
-    this.block.insertBefore(newTaskBlock, this.block.firstChild);
-    this.tasks.push(newTaskBlock);
+    idNewTask = getTaskId(this.tasks.length);
+    newTask = new Task(taskText, idNewTask);
+    this.block.insertBefore(newTask.block, this.block.firstChild);
+    this.tasks.push(newTask);
   }
 
   var self = this;
