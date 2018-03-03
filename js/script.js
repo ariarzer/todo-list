@@ -32,7 +32,7 @@ function TaskList(block) {
     var taskText = self.textArea.value;
     if (taskText){
       self.addNewTask(taskText);
-      resetValue(self.textArea);
+      self.textArea.value = '';
     }
   });
 }
