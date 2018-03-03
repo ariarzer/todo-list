@@ -1,6 +1,4 @@
-var taskList = new TaskList(document.getElementById("task-list"),
-                            document.getElementById("create-task-button"),
-                            document.getElementById('new-task'));
+var taskList = new TaskList(document.getElementById('task-list'));
 
 var counter = 0;
 
@@ -12,24 +10,26 @@ function Task(text) {
                       create('label', {'for': this.id}, this.text));
 }
 
-function TaskList(block, button, textArea) {
+const resetValue = (block) => block.value = '';
+
+function TaskList(block) {
   this.block = block;
+  this.button = document.getElementById('create-task-button');
+  this.textArea = document.getElementById('new-task');
 
   this.addNewTask = function (taskText){
     this.block.insertBefore((new Task(taskText)).block, this.block.firstChild);
   }
 
   var self = this;
-  button.addEventListener('click', function () {
-    var taskText = textArea.value;
+  this.button.addEventListener('click', function () {
+    var taskText = self.textArea.value;
     if (taskText){
       self.addNewTask(taskText);
-      resetValue(textArea);
+      resetValue(self.textArea);
     }
   });
 }
-
-const resetValue = (block) => block.value = '';
 
 function create(tag, attributes) {
   var element = document.createElement(tag);
