@@ -1,16 +1,21 @@
 var taskList = new TaskList(document.getElementById('task-list'));
 
-function Task(text, id) {
+function Task(text, id, isDone) {
   this.text = text;
   this.id = id;
+  this.isDone = isDone;
 
   var idForCheckbox = this.id + '-checkox';
 
-  this.block = create('div', {class: 'todo-list_task', 'id': this.id},create('input', {type: 'checkbox', 'id': idForCheckbox}),
-                      create('label', {'for': idForCheckbox}, this.text));
-}
+  this.checkbox = create('input', {type: 'checkbox', 'id': idForCheckbox});
 
-const resetValue = (block) => block.value = '';
+  var self = this;
+  this.checkbox.addEventListener('change', function () {
+    self.isDone = self.checkbox.checked;
+  });
+
+  this.block = create('div', {class: 'todo-list_task', 'id': this.id}, this.checkbox, create('label', {'for': idForCheckbox}, this.text));
+}
 
 function TaskList(block) {
   this.block = block;
@@ -22,7 +27,7 @@ function TaskList(block) {
 
   this.addNewTask = function (taskText){
     idNewTask = getTaskId(this.tasks.length);
-    newTask = new Task(taskText, idNewTask);
+    newTask = new Task(taskText, idNewTask, false);
     this.block.insertBefore(newTask.block, this.block.firstChild);
     this.tasks.push(newTask);
   }
