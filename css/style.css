@@ -1,129 +1,129 @@
 :root {
-    --light-brown: #F39C11;
-    --dark-brown: #542A00;
-    --external-background: #71B8B4;
-    --internal-background: #FFFCC6;
+  --light-brown: #F39C11;
+  --dark-brown: #542A00;
+  --external-background: #71B8B4;
+  --internal-background: #FFFCC6;
 }
 
 body {
-    font-size: 23px;
-    font-family: Arial;
-    background-color: var(--external-background);
+  font-size: 23px;
+  font-family: Arial;
+  background-color: var(--external-background);
 }
 
 .todo-list{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    height: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    border: 15px solid var(--light-brown);
-    padding: 20px;
-    background-color: var(--internal-background);
-    color: var(--dark-brown);
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border: 15px solid var(--light-brown);
+  padding: 20px;
+  background-color: var(--internal-background);
+  color: var(--dark-brown);
 }
 
 .todo-list_input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 30px;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
 .todo-list_text-area{
-    background-color: transparent;
-    padding-bottom: 2px;
-    border: 4px solid var(--dark-brown);
-    border-radius: 4px;
-    padding: 5px;
-    width: 450px;
-    color: var(--dark-brown);
-    font-size: 16px;
+  background-color: transparent;
+  padding-bottom: 2px;
+  border: 4px solid var(--dark-brown);
+  border-radius: 4px;
+  padding: 5px;
+  width: 450px;
+  color: var(--dark-brown);
+  font-size: 16px;
 }
 
 .todo-list_text-area::placeholder{
-    color: var(--light-brown);
+  color: var(--light-brown);
 }
 
 .todo-list_button{
-    margin-left: 10px;
-    width: 50px;
-    height: 35px;
-    background-color: transparent;
+  margin-left: 10px;
+  width: 50px;
+  height: 35px;
+  background-color: transparent;
 
-    border-bottom: 4px solid var(--dark-brown);
-    border-right: 4px solid var(--dark-brown);
-    border-top: 4px solid var(--light-brown);
-    border-left: 4px solid var(--light-brown);
+  border-bottom: 4px solid var(--dark-brown);
+  border-right: 4px solid var(--dark-brown);
+  border-top: 4px solid var(--light-brown);
+  border-left: 4px solid var(--light-brown);
 }
 
 .todo-list_button:active {
-    border-bottom: 4px solid var(--light-brown);
-    border-right: 4px solid var(--light-brown);
-    border-top: 4px solid var(--dark-brown);
-    border-left: 4px solid var(--dark-brown);
+  border-bottom: 4px solid var(--light-brown);
+  border-right: 4px solid var(--light-brown);
+  border-top: 4px solid var(--dark-brown);
+  border-left: 4px solid var(--dark-brown);
 }
 
 .todo-list_caption{
-    font-size: 22px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid var(--dark-brown);
+  font-size: 22px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid var(--dark-brown);
 }
 
 .todo-list_task-list{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .task{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-    width: 400px;
-    height: 33px;
-    display: flex;
-    align-items: center;
+  width: 400px;
+  height: 33px;
+  display: flex;
+  align-items: center;
 }
 
 .task_is-done{
-    display: none;
+  display: none;
 }
 
 .task_text,
 .task_text::before{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .task_text{
-    align-items: center;
+  align-items: center;
 }
 
 .task_text::before{
-    line-height: 18px
+  line-height: 18px
 }
 
 .task_is-done:not(checked) + .task_text::before{
-    content: "";
-    width: 18px;
-    height: 18px;
-    border-radius: 3px;
-    margin-right: 10px;
-    border: 2px solid var(--light-brown);
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  margin-right: 10px;
+  border: 2px solid var(--light-brown);
 }
 
 .task_is-done:checked + .task_text::before{
-    content: "✓";
-    background-color: var(--light-brown);
-    border: 2px solid var(--dark-brown);
-    text-align: center;
-    color: #542A00;
+  content: "✓";
+  background-color: var(--light-brown);
+  border: 2px solid var(--dark-brown);
+  text-align: center;
+  color: #542A00;
 }
