@@ -1,8 +1,8 @@
 var taskList = new TaskList(document.getElementById('task-list'));
 
-function Task(text, id, isDone) {
-  this.text = text;
+function Task(id, text, isDone) {
   this.id = id;
+  this.text = text;
   this.isDone = isDone;
 
   var idForCheckbox = this.id + '-checkox';
@@ -17,20 +17,13 @@ function Task(text, id, isDone) {
   this.block = create('div', {class: 'todo-list_task', 'id': this.id}, this.checkbox, create('label', {'for': idForCheckbox}, this.text));
 }
 
+var getTaskId = (i) => ('my-task-' + (i).toString().padStart(3, '0'));
+
 function TaskList(block) {
   this.block = block;
   this.button = document.getElementById('create-task-button');
   this.textArea = document.getElementById('new-task');
   this.tasks = [];
-
-  var getTaskId = (i) => ('my-task-' + (i).toString().padStart(3, '0'));
-
-  this.addNewTask = function (taskText){
-    idNewTask = getTaskId(this.tasks.length);
-    newTask = new Task(taskText, idNewTask, false);
-    this.block.insertBefore(newTask.block, this.block.firstChild);
-    this.tasks.push(newTask);
-  }
 
   var self = this;
   this.button.addEventListener('click', function () {
@@ -40,6 +33,13 @@ function TaskList(block) {
       self.textArea.value = '';
     }
   });
+}
+
+TaskList.prototype.addNewTask = function (taskText){
+  idNewTask = getTaskId(this.tasks.length);
+  newTask = new Task(idNewTask, taskText, false);
+  this.block.insertBefore(newTask.block, this.block.firstChild);
+  this.tasks.push(newTask);
 }
 
 function create(tag, attributes) {
