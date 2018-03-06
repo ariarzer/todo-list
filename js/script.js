@@ -7,14 +7,15 @@ function Task(id, text, isDone) {
 
   var idForCheckbox = this.id + '-checkox';
 
-  this.checkbox = create('input', {type: 'checkbox', 'id': idForCheckbox});
+  this.checkbox = create('input', {type: 'checkbox', 'id': idForCheckbox, class: 'task_is-done'});
+  this.label = create('label', {'for': idForCheckbox, class: 'task_text'});
 
   var self = this;
   this.checkbox.addEventListener('change', function () {
     self.isDone = self.checkbox.checked;
   });
 
-  this.block = create('div', {class: 'todo-list_task', 'id': this.id}, this.checkbox, create('label', {'for': idForCheckbox}, this.text));
+  this.block = create('div', {class: 'task', 'id': this.id}, this.checkbox, this.label, this.text);
 }
 
 var getTaskId = (i) => ('my-task-' + (i).toString().padStart(3, '0'));
