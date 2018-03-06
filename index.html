@@ -7,18 +7,16 @@
 	<link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-	<div class="basic">
-	    <div class="basic_input">
-		<input type="text" placeholder="New task" id="newTask" class="input-field">
-		<button id="buttonAdd" onclick="addTask()" class="button">Add</button>
+	<div class="todo-list">
+	    <div class="todo-list_input">
+		<input type="text" placeholder="New task..." id="new-task" class="todo-list_text-area">
+		<button id="create-task-button" class="todo-list_button">Add</button>
 	    </div>
 
-	    <div class="todo-list">
-		<div class="todo-list_caption">TODO:</div>
-		<div id="taskList" class="todo-list_task-list"></div>
-	    </div>
+	    <div class="todo-list_caption">TODO:</div>
+	    <div id="task-list" class="todo-list_task-list"></div>
 
-	    <script src="js/script.js"></script>
 	<div>
+	<script src="js/script.js"></script>
     </body>
 </html>
